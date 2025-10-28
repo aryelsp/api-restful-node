@@ -30,7 +30,6 @@ Siga os passos abaixo para rodar a aplicação localmente:
 
 ```bash
 git clone https://github.com/aryelsp/api-restful-node.git
-cd api-restful-node
 ```
 
 ### 2. Instalar as Dependências
