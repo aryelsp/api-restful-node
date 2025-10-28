@@ -19,6 +19,6 @@ const connectDB = async () => {
 connectDB();
 
 // Rotas
-app.use('/', usuarioRoutes);
+app.use('/usuarios', usuarioRoutes);
 
 export default app;
