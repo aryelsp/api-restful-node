@@ -29,8 +29,8 @@ Siga os passos abaixo para rodar a aplicação localmente:
 ### 1. Clonar o Repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd <nome-do-seu-projeto>
+git clone https://github.com/aryelsp/api-restful-node.git
+cd api-restful-node
 ```
 
 ### 2. Instalar as Dependências
