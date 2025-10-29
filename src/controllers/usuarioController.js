@@ -60,7 +60,7 @@ export const deletarUsuario = async (req, res) => {
     const usuarioExcluido = await Usuario.findByIdAndDelete(req.params.id);
     if (!usuarioExcluido)
       return res.status(404).json({ message: 'Usuário não encontrado.' });
-    res.status(204).send({ message: 'Usuário excluído.' });
+    res.status(204).send();
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
