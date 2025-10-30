@@ -8,6 +8,7 @@
 
 ## 📄 Sobre o Projeto
 
+![projeto](assets/project-view.png)
 Este projeto consiste em uma **API RESTful de Gerenciamento de Usuários** desenvolvida utilizando **Node.js**, **Express** e **MongoDB**.
 
 ## 🚀 Tecnologias Utilizadas
