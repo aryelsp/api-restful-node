@@ -12,7 +12,7 @@ app.use(express.json());
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB conectado!'))
-  .catch((error) => console.log(`Falha na conexao: ${error}`));
+  .catch((error) => console.error(`Falha na conexao: ${error}`));
 
 // Rotas
 app.use('/usuarios', usuarioRoutes);
