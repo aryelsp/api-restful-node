@@ -1,45 +1,39 @@
 import Usuario from '../models/Usuario.js';
 
 // Listar todos
-export const listarUsuarios = async (req, res) => {
+export const listarUsuarios = async (req, res, next) => {
   try {
     const usuarios = await Usuario.find();
     res.status(200).json(usuarios);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
 // Buscar
-export const buscarUsuario = async (req, res) => {
+export const buscarUsuario = async (req, res, next) => {
   try {
     const usuario = await Usuario.findById(req.params.id);
     if (!usuario)
       return res.status(404).json({ message: 'Usuário não encontrado.' });
     res.status(200).json(usuario);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
 // Criar
-export const criarUsuario = async (req, res) => {
+export const criarUsuario = async (req, res, next) => {
   try {
-    const { nome, email, idade } = req.body;
-    if (!nome || !email || !idade) {
-      return res
-        .status(400)
-        .json({ message: 'Campos obrigatórios: nome, email e idade.' });
-    }
     const novoUsuario = await Usuario.create(req.body);
     res.status(201).json(novoUsuario);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
 // Atualizar
-export const atualizarUsuario = async (req, res) => {
+export const atualizarUsuario = async (req, res, next) => {
   try {
     const usuarioAtualizado = await Usuario.findByIdAndUpdate(
       req.params.id,
@@ -50,18 +44,18 @@ export const atualizarUsuario = async (req, res) => {
       return res.status(404).json({ message: 'Usuário não encontrado.' });
     res.status(200).json(usuarioAtualizado);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
 
 // Deletar
-export const deletarUsuario = async (req, res) => {
+export const deletarUsuario = async (req, res, next) => {
   try {
     const usuarioExcluido = await Usuario.findByIdAndDelete(req.params.id);
     if (!usuarioExcluido)
       return res.status(404).json({ message: 'Usuário não encontrado.' });
     res.status(204).send();
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    next(error);
   }
 };
